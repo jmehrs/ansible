@@ -1,0 +1,13 @@
+- name: Git work setup email
+  git_config:
+    name: user.email
+    scope: global
+    value: "jai.mehra@nav-timing.safrangroup.com"
+  tags: always
+
+- name: Git work setup name
+  git_config:
+    name: user.name
+    scope: global
+    value: "Jai Mehra"
+  tags: always

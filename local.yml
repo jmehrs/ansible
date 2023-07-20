@@ -1,0 +1,63 @@
+- hosts: localhost
+  vars:
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+  pre_tasks:
+  - name: Update Apt
+    become: true
+    apt:
+      force_apt_get: true
+      update_cache: true
+      state: present
+    tags:
+      - install
+      - core
+
+  tasks:
+
+    - name: SSH setup
+      include_tasks:
+        file: tasks/ssh-setup.yml
+      tags:
+        - dotfiles
+        - install
+        - ssh
+
+    - name: Git setup
+      include_tasks:
+        file: tasks/git-setup.yml
+      tags:
+        - git
+
+    - name: Core setup
+      include_tasks:
+        file: tasks/core-setup.yml
+      tags:
+        - install
+        - core
+
+    - name: ZSH setup
+      include_tasks:
+        file: tasks/zsh-setup.yml
+      tags:
+        - dotfiles
+        - install
+        - productivity
+        - zsh
+
+    - name: Nvim setup
+      include_tasks:
+        file: tasks/nvim-setup.yml
+      tags:
+        - install
+        - neovim
+
+    - name: Brave setup
+      include_tasks:
+        file: tasks/brave-setup.yml
+      tags:
+        - brave
+        - install
+
+    # - include: tasks/dotfiles.yml
+    # - include: tasks/productivity-tools.yml
