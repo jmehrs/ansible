@@ -25,5 +25,3 @@
     state: present
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/id_rsa.pub') }}"
   tags: always
-  # ansible-playbook -tssh local.yml --ask-vault-pass
-  # Ja!m3a96_Ch!ckencurry1
