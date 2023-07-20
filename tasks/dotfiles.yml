@@ -1,10 +1,8 @@
 - name: Installing stow
   become: true
   apt: name=stow
-  tags:
-    - install
-    - dotfiles
-    - stow
+  tags: always
+
 - name: Cloning .dotfiles
   ansible.builtin.git:
     repo: 'git@github.com:jmehrs/.dotfiles.git'
@@ -13,13 +11,8 @@
     update: yes
     accept_hostkey: yes
     version: master
-  tags:
-    - install
-    - dotfiles
-    - stow
+  tags: always
+
 - name: Stow dotfiles
   shell: cd $HOME/.dotfiles && ./ubuntu
-  tags:
-    - install
-    - dotfiles
-    - stow
+  tags: always

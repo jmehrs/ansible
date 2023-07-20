@@ -59,5 +59,12 @@
         - brave
         - install
 
-    # - include: tasks/dotfiles.yml
+    - name: dotfile setup
+      include_tasks:
+        file: tasks/dotfiles.yml
+      tags:
+        - install
+        - dotfiles
+        - stow
+
     # - include: tasks/productivity-tools.yml
