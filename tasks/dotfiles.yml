@@ -1,5 +1,4 @@
 - name: Installing stow
-  become: true
   apt: name=stow
   tags: always
 
