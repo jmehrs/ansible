@@ -2,6 +2,4 @@
   become: true
   apt:
     name: [ "tmux", "wireshark", "fzf", "gimp", "xclip", "screenkey", "tldr", "ripgrep" ]
-  tags:
-    - install
-    - productivity
+  tags: always

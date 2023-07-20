@@ -66,5 +66,10 @@
         - install
         - dotfiles
         - stow
-
-    # - include: tasks/productivity-tools.yml
+ 
+    - name: Productivity tools
+      include_tasks:
+        file: tasks/productivity-tools.yml
+      tags:
+        - install
+        - productivity
