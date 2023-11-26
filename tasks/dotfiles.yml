@@ -1,6 +1,7 @@
 - name: Installing stow
   apt: name=stow
   tags: always
+  become: true
 
 - name: Cloning .dotfiles
   ansible.builtin.git:
