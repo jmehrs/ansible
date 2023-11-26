@@ -9,6 +9,7 @@
     url: https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
     dest: /usr/share/keyrings/brave-browser-archive-keyring.gpg
   tags: always
+  become: true
 
 - name: Brave Browser PPA setting
   become: true
